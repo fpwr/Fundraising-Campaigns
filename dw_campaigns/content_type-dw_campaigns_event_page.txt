@@ -1,0 +1,269 @@
+$content['type']  = array (
+  'name' => 'Derby / Walking Fundraising Event Details Page',
+  'type' => 'dw_campaigns_event_page',
+  'description' => 'This is optional extended information for an event ',
+  'title_label' => 'Title',
+  'body_label' => 'Extended Event Details',
+  'min_word_count' => '0',
+  'help' => '',
+  'node_options' => 
+  array (
+    'status' => true,
+    'promote' => true,
+    'sticky' => false,
+    'revision' => false,
+  ),
+  'language_content_type' => 0,
+  'old_type' => 'dw_campaigns_event_page',
+  'orig_type' => '',
+  'module' => 'node',
+  'custom' => '1',
+  'modified' => '1',
+  'locked' => '0',
+  'comment' => '0',
+  'comment_default_mode' => '4',
+  'comment_default_order' => '1',
+  'comment_default_per_page' => '50',
+  'comment_controls' => '3',
+  'comment_anonymous' => 0,
+  'comment_subject_field' => '0',
+  'comment_preview' => '1',
+  'comment_form_location' => '0',
+  'i18n_newnode_current' => 0,
+  'i18n_required_node' => 0,
+  'i18n_lock_node' => 0,
+  'i18n_node' => 1,
+);
+$content['fields']  = array (
+  0 => 
+  array (
+    'label' => 'Campaign Node ID',
+    'field_name' => 'field_dw_eventdetails_node',
+    'type' => 'number_integer',
+    'widget_type' => 'number',
+    'change' => 'Change basic information',
+    'weight' => '5',
+    'description' => 'This is the campaign node which this is extended information for',
+    'default_value' => 
+    array (
+      0 => 
+      array (
+        'value' => '',
+        '_error_element' => 'default_value_widget][field_dw_eventdetails_node][0][value',
+      ),
+    ),
+    'default_value_php' => '',
+    'default_value_widget' => NULL,
+    'required' => 1,
+    'multiple' => '0',
+    'min' => '1',
+    'max' => '',
+    'prefix' => '',
+    'suffix' => '',
+    'allowed_values' => '',
+    'allowed_values_php' => '',
+    'op' => 'Save field settings',
+    'module' => 'number',
+    'widget_module' => 'number',
+    'columns' => 
+    array (
+      'value' => 
+      array (
+        'type' => 'int',
+        'not null' => false,
+        'sortable' => true,
+      ),
+    ),
+    'display_settings' => 
+    array (
+      'label' => 
+      array (
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => 
+      array (
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => 
+      array (
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      4 => 
+      array (
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => 
+      array (
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+  ),
+  1 => 
+  array (
+    'label' => 'Prizes',
+    'field_name' => 'field_dw_eventdetails_prizes',
+    'type' => 'text',
+    'widget_type' => 'text_textarea',
+    'change' => 'Change basic information',
+    'weight' => '7',
+    'rows' => '5',
+    'size' => 60,
+    'description' => '',
+    'default_value' => 
+    array (
+      0 => 
+      array (
+        'value' => '',
+        '_error_element' => 'default_value_widget][field_dw_eventdetails_prizes][0][value',
+      ),
+    ),
+    'default_value_php' => '',
+    'default_value_widget' => 
+    array (
+      'field_dw_eventdetails_prizes' => 
+      array (
+        0 => 
+        array (
+          'value' => '',
+          '_error_element' => 'default_value_widget][field_dw_eventdetails_prizes][0][value',
+        ),
+      ),
+    ),
+    'required' => 0,
+    'multiple' => '0',
+    'text_processing' => '0',
+    'max_length' => '',
+    'allowed_values' => '',
+    'allowed_values_php' => '',
+    'op' => 'Save field settings',
+    'module' => 'text',
+    'widget_module' => 'text',
+    'columns' => 
+    array (
+      'value' => 
+      array (
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => false,
+        'sortable' => true,
+        'views' => true,
+      ),
+    ),
+    'display_settings' => 
+    array (
+      'label' => 
+      array (
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => 
+      array (
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => 
+      array (
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      4 => 
+      array (
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => 
+      array (
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+  ),
+  2 => 
+  array (
+    'label' => 'Download Document',
+    'field_name' => 'field_dw_eventdetails_dl_documen',
+    'type' => 'filefield',
+    'widget_type' => 'filefield_widget',
+    'change' => 'Change basic information',
+    'weight' => '8',
+    'file_extensions' => 'txt pdf doc rtf',
+    'progress_indicator' => 'bar',
+    'file_path' => 'eventdetails_dl_document',
+    'max_filesize_per_file' => '',
+    'max_filesize_per_node' => '',
+    'description' => '',
+    'required' => 0,
+    'multiple' => '0',
+    'list_field' => '0',
+    'list_default' => 1,
+    'description_field' => '0',
+    'op' => 'Save field settings',
+    'module' => 'filefield',
+    'widget_module' => 'filefield',
+    'columns' => 
+    array (
+      'fid' => 
+      array (
+        'type' => 'int',
+        'not null' => false,
+        'views' => true,
+      ),
+      'list' => 
+      array (
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => false,
+        'views' => true,
+      ),
+      'data' => 
+      array (
+        'type' => 'text',
+        'serialize' => true,
+        'views' => true,
+      ),
+    ),
+    'display_settings' => 
+    array (
+      'label' => 
+      array (
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => 
+      array (
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => 
+      array (
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      4 => 
+      array (
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'token' => 
+      array (
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+  ),
+);
+$content['extra']  = array (
+  'title' => '6',
+  'body_field' => '10',
+  'revision_information' => '11',
+  'author' => '12',
+  'options' => '13',
+  'comment_settings' => '15',
+  'menu' => '9',
+  'path' => '14',
+);

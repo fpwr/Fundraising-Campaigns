@@ -1,0 +1,5 @@
+source of new images   http://www.famfamfam.com/lab/icons/flags/
+
+renamed europeanunion.gif to eu.gif
+renamed tl.gif to tp.gif
+copied eu.gif to 0.gif (this is our 'unknown' flag)

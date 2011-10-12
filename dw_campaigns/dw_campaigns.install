@@ -1,0 +1,102 @@
+<?php
+
+function dw_campaigns_install() {
+	dw_campaigns_try_adding_derby();
+}
+
+function dw_campaigns_uninstall() {
+	drupal_uninstall_schema('dw_campaigns');
+}
+
+function dw_campaigns_try_adding_derby() {
+	$types = array();
+	$type_result = db_query('SELECT * FROM {node_type} WHERE type like "dw_campaign_%"');
+	while ($type = db_fetch_array($type_result)) {
+		$types[$type['type']] = $type;
+	}
+	
+	if(!isset($types['dw_campaigns_derby'])) {
+		drupal_set_message('Added Derby Content Type', 'status');
+
+		install_include(array('content', 'content_copy'));
+		$file = drupal_get_path('module', 'dw_campaigns') . '/content_type-dw_campaign_derby.txt';
+		install_content_copy_import_from_file($file, '');
+	} else {
+		drupal_set_message('Skipped Adding Derby Content Type', 'status');
+	}
+	
+	drupal_set_message('Installed DW Campaigns Schema', 'status');
+	drupal_install_schema('dw_campaigns');
+}
+
+function dw_campaigns_update_2() {
+	dw_campaigns_try_adding_derby();
+}
+
+
+
+function dw_campaigns_schema() {
+
+    $schema['dw_campaigns_uploaded_photos'] = array(
+        'fields' => array(
+            'fid'                       => array('type' => 'int',       'not null' => TRUE),
+            'filepath'                  => array('type' => 'varchar',   'length' => 127, 'not null' => TRUE),
+            'owner'                     => array('type' => 'int',       'not null' => TRUE),
+            'for_nid'                   => array('type' => 'int',       'not null' => TRUE),
+            'status'                    => array('type' => 'char',      'length' => 1, 'not null' => TRUE),
+        ),
+        'primary key' => array('fid'),
+    );
+
+    $schema['dw_campaigns_photos_mapping'] = array(
+        'fields' => array(
+            'fid'                       => array('type' => 'int',       'not null' => TRUE),
+            'type'                      => array('type' => 'varchar',   'length' => 127, 'not null' => TRUE),
+            'resource_id'               => array('type' => 'int',       'not null' => TRUE),
+        ),
+        'unique key' => array('fid', 'type'),
+    );
+    
+    $schema['dw_campaigns_campaigns_to_contribution_pages'] = array(
+        'fields' => array(
+            'nid'			=> array('type' => 'int',   'not null' => TRUE),
+            'contribution_page_id'	=> array('type' => 'int',   'not null' => TRUE),
+            'event_page_id'		=> array('type' => 'int',   'not null' => TRUE),
+        ),
+        'primary key' => array('nid','contribution_page_id')
+    );
+    
+    
+    $schema['dw_campaigns_drupal_civi_contact_mapping'] = array(
+        'fields' => array(
+            'mapping_id'                => array('type' => 'serial',    'not null' => TRUE),
+            'drupal_id'                 => array('type' => 'int',       'not null' => TRUE),
+            'civi_contact_id'           => array('type' => 'int',       'not null' => TRUE),
+        ),
+        'primary key' => array('mapping_id'),
+    );
+
+    $schema['dw_campaigns_donation_privacy'] = array(
+        'fields' => array(
+            'privacy_id'                => array('type' => 'serial',    'not null' => TRUE),
+            'civi_contact_id'           => array('type' => 'int',       'not null' => TRUE),
+            'soft_id'                   => array('type' => 'int',       'not null' => TRUE),
+            'pcp'	                => array('type' => 'int',       'not null' => TRUE),
+            'options'                   => array('type' => 'text',      'not null' => TRUE),        
+        ),
+        'primary key' => array('mapping_id'),
+    );
+    
+    $schema['dw_campaigns_user_notify_settings'] = array(
+	'fields'	=> array(
+            'drupal_id'                                 => array('type' => 'int',	'length' => 10, 'not null' => TRUE),
+            'notify_on_donation'                        => array('type' => 'int',	'length' => 1, 'not null' => TRUE),
+            'notify_on_donation_additional_emails'      => array('type' => 'text',	'not null' => TRUE),
+            'notify_weekly_report'                      => array('type' => 'int',	'length' => 1, 'not null' => TRUE),
+            'notify_campaign_progress'                  => array('type' => 'int',	'length' => 1, 'not null' => TRUE),
+	),
+	'unique keys' => array('drupal_id'),
+    );
+    
+    return $schema;
+}
