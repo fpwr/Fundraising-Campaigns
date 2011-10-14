@@ -1,4 +1,22 @@
 <?php
+
+/** 
+* All code is Copyright 2011 by the original authors.
+* 
+*  This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
+* as published by the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+* 
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+*/
+
 /*
     'restUrl'	=> 'http://172.16.0.175/sites/all/modules/civicrm/extern/rest.php?q=civicrm',
     'siteKey'	=> '0392c182c832f798500cca3d8d983b56',
